@@ -21,19 +21,25 @@ public class Test
         Garage garage = new Garage();
         Car car;
         String input; // Stores strings from the file. 
+        String statement; //States the actions of the cars.
 
-        input = sc.next();
-        car = new Car( input );
-        input = sc.next();
-        
-        //Checks if the car is arriving or departing.
-        if ( input.equals( "ARRIVE" ) )
+        while ( sc.hasNext() )
         {
-            garage.arrive( car );
-        } 
-        else
-        {
-            garage.depart(car);
+            input = sc.next();
+            car = new Car( input );
+            input = sc.next();
+
+            //Checks if the car is arriving or departing.
+            if ( input.equals( "ARRIVE" ) )
+            {
+                statement = garage.arrive( car );
+                System.out.print( statement );
+            } 
+            else //If the car is departing
+            {
+                statement = garage.depart( car );
+                System.out.print( statement );
+            }
         }
     }
 }
